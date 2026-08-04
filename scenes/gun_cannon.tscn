@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cd7w1m4d33fo8"]
+
+[ext_resource type="Texture2D" uid="uid://oibe3qgcofjp" path="res://assets/TDgun-removebg-preview.png" id="1_x4fqx"]
+
+[node name="GunCannon" type="Node2D" unique_id=166401528]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1137725529]
+position = Vector2(-3, 5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_x4fqx")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=108669262]
+position = Vector2(39, 1)
