@@ -9,8 +9,11 @@ script = ExtResource("1_7dcje")
 
 [node name="Area2D" parent="." unique_id=467424132 instance=ExtResource("2_lpnxe")]
 collision_layer = 2
+collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=385545259]
 modulate = Color(0, 0.7176471, 1, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_lpnxe")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

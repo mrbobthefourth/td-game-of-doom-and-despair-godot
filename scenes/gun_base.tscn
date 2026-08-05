@@ -7,7 +7,7 @@
 size = Vector2(77, 79)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uagjl"]
-radius = 92.070625
+radius = 138.10141
 
 [node name="GunBase" type="Node2D" unique_id=1356387038]
 script = ExtResource("1_uagjl")
@@ -22,7 +22,7 @@ position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_u0ya7")
 
 [node name="RangeArea2D" type="Area2D" parent="." unique_id=2122754183]
-collision_layer = 4
+collision_layer = 256
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea2D" unique_id=759523893]

@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 		$CoinsLabel.text = str(Carrier.money)
 	elif Carrier.money < 1000000:
 		$CoinsLabel.text = str(Carrier.money / 1000) + "K"
+	$WaveCounter.text = "WAVE" + str($Path.waveCount)
 	if placing_tower and current_tower:
 		current_tower.global_position = get_global_mouse_position()
 
@@ -26,7 +27,7 @@ func _unhandled_input(event):
 				current_tower.place()
 				placing_tower = false
 				current_tower.active = true
-				Carrier.money -= 10
+				Carrier.money -= 20
 
 func place_tower(pos):
 	var tower = tower_scene.instantiate()
@@ -36,7 +37,7 @@ func place_tower(pos):
 
 
 func _on_gun_tower_button_pressed() -> void:
-	if Carrier.money > 9:
+	if Carrier.money > 19:
 		placing_tower = true
 		place_tower(get_global_mouse_position())
 	

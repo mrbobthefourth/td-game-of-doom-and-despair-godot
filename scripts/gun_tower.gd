@@ -1,5 +1,6 @@
 extends Node2D
 
+var has_target = false
 var active = false
 var target = null
 var enemies_in_range = []
@@ -45,9 +46,13 @@ func _on_range_area_2d_area_exited(area: Area2D) -> void:
 func choose_target():
 	if not enemies_in_range.size() == 0:
 		target = enemies_in_range[0]
+		has_target = true
+	else:
+		has_target = false
 
 
 func _on_timer_timeout() -> void:
-	var bullet = bullet_scene.instantiate()
-	bullet.global_rotation = $GunCannon.global_rotation
-	add_child(bullet)
+	if active and has_target:
+		var bullet = bullet_scene.instantiate()
+		bullet.global_rotation = $GunCannon.global_rotation
+		add_child(bullet, true)
