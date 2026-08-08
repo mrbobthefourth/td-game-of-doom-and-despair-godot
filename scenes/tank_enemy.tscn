@@ -5,6 +5,11 @@
 
 [node name="PathEnemy" type="PathFollow2D" unique_id=2064015593]
 script = ExtResource("1_1jugj")
+health = 8
 
 [node name="Area2D" parent="." unique_id=467424132 instance=ExtResource("2_1jugj")]
-position = Vector2(143, 205)
+position = Vector2(-14, 3)
+collision_layer = 2
+collision_mask = 4
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,4 +1,4 @@
 extends Node
 
-var money = 30
+var money = 25
 var baseHP = 10

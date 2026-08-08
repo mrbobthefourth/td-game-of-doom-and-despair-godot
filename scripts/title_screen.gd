@@ -1,17 +1,19 @@
-extends PathFollow2D
+extends Control
 
-var speed = 200
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	randomize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	progress += speed * delta
+	pass
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	area.queue_free()
-	Carrier.money += 1
-	queue_free()
+func _on_play_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://game.tscn")
+
+
+func _on_play_button_2_pressed() -> void:
+	get_tree().quit(0)

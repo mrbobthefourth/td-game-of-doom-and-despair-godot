@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bq3hcwv40s1et" path="res://scripts/base.gd" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://oibe3qgcofjp" path="res://assets/TDgun-removebg-preview.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://bpomrpekjpo0n" path="res://scripts/carrier.gd" id="6_ryrav"]
+[ext_resource type="Texture2D" uid="uid://bm7pmret388g7" path="res://assets/FRZgun-removebg-preview.png" id="6_vef74"]
+[ext_resource type="PackedScene" uid="uid://drmegmlqpb83m" path="res://scenes/freezer_base.tscn" id="8_j5wjh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 50
@@ -99,10 +101,21 @@ offset_top = 21.0
 offset_right = 1123.0
 offset_bottom = 110.0
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=384048134]
-position = Vector2(1058.9999, 70.99999)
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GunTowerButton" unique_id=384048134]
+position = Vector2(43.999878, 49.999992)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_7jktm")
+
+[node name="FreezerTowerButton" type="Button" parent="CanvasLayer" unique_id=1319897666]
+offset_left = 1015.0
+offset_top = 118.0
+offset_right = 1123.0
+offset_bottom = 207.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/FreezerTowerButton" unique_id=931389919]
+position = Vector2(48.6792, 54.091995)
+scale = Vector2(0.30037862, 0.285009)
+texture = ExtResource("6_vef74")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1592769938]
 offset_left = 1005.0
@@ -181,5 +194,10 @@ shape = SubResource("RectangleShape2D_yex4w")
 [node name="Carrier" type="Node" parent="." unique_id=176475661]
 script = ExtResource("6_ryrav")
 
+[node name="FreezerBase" parent="." unique_id=1356387038 instance=ExtResource("8_j5wjh")]
+position = Vector2(457, 398)
+
 [connection signal="area_entered" from="BaseArea" to="BaseArea" method="_on_area_entered"]
+[connection signal="script_changed" from="BaseArea" to="BaseArea" method="_on_script_changed"]
 [connection signal="pressed" from="CanvasLayer/GunTowerButton" to="." method="_on_gun_tower_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/FreezerTowerButton" to="." method="_on_freezer_tower_button_pressed"]
