@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://oibe3qgcofjp" path="res://assets/TDgun-removebg-preview.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://bpomrpekjpo0n" path="res://scripts/carrier.gd" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bm7pmret388g7" path="res://assets/FRZgun-removebg-preview.png" id="6_vef74"]
-[ext_resource type="PackedScene" uid="uid://drmegmlqpb83m" path="res://scenes/freezer_base.tscn" id="8_j5wjh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 50
@@ -34,8 +33,11 @@ size = Vector2(36, 78)
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0ya7"]
 radius = 61.81424
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eow3j"]
+size = Vector2(70, 401)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yex4w"]
-size = Vector2(70, 291)
+size = Vector2(70, 306)
 
 [node name="Game" type="Node2D" unique_id=1725386754]
 script = ExtResource("1_7jktm")
@@ -117,6 +119,25 @@ position = Vector2(48.6792, 54.091995)
 scale = Vector2(0.30037862, 0.285009)
 texture = ExtResource("6_vef74")
 
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1182390182]
+offset_left = 1083.0
+offset_top = 72.0
+offset_right = 1123.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "25"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=45948916]
+offset_left = 1087.0
+offset_top = 168.0
+offset_right = 1127.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "30
+"
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1592769938]
 offset_left = 1005.0
 offset_top = -18.0
@@ -173,8 +194,8 @@ shape = SubResource("CircleShape2D_u0ya7")
 [node name="PathZone" type="Area2D" parent="NoBuildZones" unique_id=857491257]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/PathZone" unique_id=1210680325]
-position = Vector2(580, 375.5)
-shape = SubResource("RectangleShape2D_yex4w")
+position = Vector2(580, 430.5)
+shape = SubResource("RectangleShape2D_eow3j")
 
 [node name="PathZone2" type="Area2D" parent="NoBuildZones" unique_id=1575228592]
 position = Vector2(845, -319)
@@ -193,9 +214,6 @@ shape = SubResource("RectangleShape2D_yex4w")
 
 [node name="Carrier" type="Node" parent="." unique_id=176475661]
 script = ExtResource("6_ryrav")
-
-[node name="FreezerBase" parent="." unique_id=1356387038 instance=ExtResource("8_j5wjh")]
-position = Vector2(457, 398)
 
 [connection signal="area_entered" from="BaseArea" to="BaseArea" method="_on_area_entered"]
 [connection signal="script_changed" from="BaseArea" to="BaseArea" method="_on_script_changed"]

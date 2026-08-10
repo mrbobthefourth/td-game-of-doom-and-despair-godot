@@ -19,6 +19,10 @@ func place():
 	$freezer_cannon/Sprite2D.modulate = Color.WHITE
 
 func _process(delta: float) -> void:
+	if enemies_in_range.size() != 0:
+		if enemies_in_range[0].get("slowed") != null:
+			if enemies_in_range[0].slowed == false:
+				enemies_in_range.remove_at(0)
 	choose_target()
 	if $Area2D.has_overlapping_areas() == true:
 		can_place = false
@@ -35,7 +39,7 @@ func _process(delta: float) -> void:
 
 
 func _on_range_area_2d_area_entered(area: Area2D) -> void:
-	enemies_in_range.append(area)
+		enemies_in_range.append(area)
 
 
 

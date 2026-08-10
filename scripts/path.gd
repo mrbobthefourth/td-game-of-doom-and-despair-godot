@@ -1,12 +1,13 @@
 extends Path2D
 
+var gameStarted = false
 var waveCount =  1
 @onready var enemy_scene = preload("res://scenes/path_enemy.tscn")
 @onready var fenemy_scene = preload("res://scenes/fast_enemy.tscn")
 @onready var tenemy_scene = preload("res://scenes/tank_enemy.tscn")
 func _ready():
-	await get_tree().create_timer(2).timeout
-	wave(1)
+	if not get_parent().get_node("GunBase") == null:
+		wave(1)
 
 func wave(wave):
 	if wave == 1: # WAVE 1 -------------------------------------------------------------------------
@@ -98,7 +99,7 @@ func wave(wave):
 			await get_tree().create_timer(1).timeout
 
 func _process(delta: float) -> void:
-	await get_tree().create_timer(2).timeout
-	if get_child_count() == 0 and waveCount != 10:
-		waveCount += 1
-		wave(waveCount)
+	if not get_parent().get_node("GunBase") == null:
+		if get_child_count() == 0 and waveCount != 10:
+			waveCount += 1
+			wave(waveCount)

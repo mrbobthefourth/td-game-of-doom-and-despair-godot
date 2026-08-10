@@ -2,7 +2,7 @@ extends Node2D
 
 var current_tower = null
 @onready var guntower_scene = preload("res://scenes/gun_base.tscn")
-@onready var frztower_scene
+@onready var frztower_scene = preload("res://scenes/freezer_base.tscn")
 var placing_guntower = false
 var placing_frztower = false
 
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	elif Carrier.money < 1000000:
 		$CoinsLabel.text = str(Carrier.money / 1000) + "K"
 	$WaveCounter.text = "WAVE" + str($Path.waveCount)
-	if placing_guntower and current_tower:
+	if (placing_guntower or placing_frztower) and current_tower:
 		current_tower.global_position = get_global_mouse_position()
 
 func _unhandled_input(event):
@@ -37,13 +37,19 @@ func place_guntower(pos):
 	add_child(tower)
 	current_tower = tower
 
+func place_frztower(pos):
+	var tower = frztower_scene.instantiate()
+	tower.global_position = pos
+	add_child(tower)
+	current_tower = tower
 
 func _on_gun_tower_button_pressed() -> void:
 	if Carrier.money > 24:
 		placing_guntower = true
 		place_guntower(get_global_mouse_position())
-	
 
 
 func _on_freezer_tower_button_pressed() -> void:
-	pass # Replace with function body.
+	if Carrier.money > 29:
+		placing_guntower = true
+		place_frztower(get_global_mouse_position())
