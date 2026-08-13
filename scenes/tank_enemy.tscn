@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dygs1md3cffuc"]
 
-[ext_resource type="Script" uid="uid://wh0yjn8nwcvc" path="res://scripts/tank_enemy.gd" id="1_1jugj"]
+[ext_resource type="Script" uid="uid://wh0yjn8nwcvc" path="res://scripts/enemy_collective.gd" id="1_1jugj"]
 [ext_resource type="PackedScene" uid="uid://b7jdg6yjf64y4" path="res://scenes/tankEnemy.tscn" id="2_1jugj"]
 
 [node name="PathEnemy" type="PathFollow2D" unique_id=2064015593]

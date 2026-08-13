@@ -16,20 +16,41 @@ func _process(delta: float) -> void:
 	$HPlabel.text = "HP:" + str(Carrier.baseHP)
 	if Carrier.money < 9999:
 		$CoinsLabel.text = str(Carrier.money)
-	elif Carrier.money < 1000000:
-		$CoinsLabel.text = str(Carrier.money / 1000) + "K"
+	elif Carrier.money < 100000:
+		$CoinsLabel.text = str(Carrier.money / 100) + "K"
 	$WaveCounter.text = "WAVE" + str($Path.waveCount)
+	if Carrier.money < 25:
+		$CanvasLayer/GunTowerButton.modulate = Color.RED
+	else:
+		$CanvasLayer/GunTowerButton.modulate = Color.WHITE
+	if Carrier.money < 30:
+		$CanvasLayer/FreezerTowerButton.modulate = Color.RED
+	else:
+		$CanvasLayer/FreezerTowerButton.modulate = Color.WHITE
 	if (placing_guntower or placing_frztower) and current_tower:
 		current_tower.global_position = get_global_mouse_position()
+	if Input.is_action_just_pressed("debug"):
+		Carrier.money += 10
+	if Input.is_action_just_pressed("debug-"):
+		Carrier.money -= 10
+	if Input.is_action_just_pressed("debug*"):
+		Carrier.money += 1
 
 func _unhandled_input(event):
-	if placing_guntower and event is InputEventMouseButton:
+	if (placing_guntower or placing_frztower) and event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if current_tower.can_place == true:
 				current_tower.place()
-				placing_guntower = false
+				if placing_guntower == true:
+					placing_guntower = false
+					Carrier.money -= 25
+					print("gun")
+				elif placing_frztower == true:
+					placing_frztower = false
+					Carrier.money -= 30
+					print("freeze")
 				current_tower.active = true
-				Carrier.money -= 25
+
 
 func place_guntower(pos):
 	var tower = guntower_scene.instantiate()
@@ -44,12 +65,12 @@ func place_frztower(pos):
 	current_tower = tower
 
 func _on_gun_tower_button_pressed() -> void:
-	if Carrier.money > 24:
+	if Carrier.money >= 25:
 		placing_guntower = true
 		place_guntower(get_global_mouse_position())
 
 
 func _on_freezer_tower_button_pressed() -> void:
-	if Carrier.money > 29:
-		placing_guntower = true
+	if Carrier.money >= 30:
+		placing_frztower = true
 		place_frztower(get_global_mouse_position())
