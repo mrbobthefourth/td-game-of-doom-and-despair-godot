@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r8oc48mqoyjq"
-path="res://.godot/imported/OIP-469040980-removebg-preview.png-393b35151b600ebad9660d843a15bbf1.ctex"
+uid="uid://c5xcsqvafgtrq"
+path="res://.godot/imported/BombShell-removebg-preview.png-1c1d5764f87625f1f54df84595d6255e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/OIP-469040980-removebg-preview.png"
-dest_files=["res://.godot/imported/OIP-469040980-removebg-preview.png-393b35151b600ebad9660d843a15bbf1.ctex"]
+source_file="res://assets/BombShell-removebg-preview.png"
+dest_files=["res://.godot/imported/BombShell-removebg-preview.png-1c1d5764f87625f1f54df84595d6255e.ctex"]
 
 [params]
 

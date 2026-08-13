@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://y6m6e8386pkw"]
+
+[ext_resource type="Script" uid="uid://d2pg8f8y355c3" path="res://scripts/bomb_base.gd" id="1_a3vg3"]
+[ext_resource type="Texture2D" uid="uid://b8s6tjo6ksthv" path="res://assets/PNG/Default size/towerDefense_tile084.png" id="2_casn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0ya7"]
+size = Vector2(77, 79)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uagjl"]
+radius = 138.10141
+
+[node name="BombBase" type="Node2D" unique_id=1356387038]
+script = ExtResource("1_a3vg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=740612884]
+texture = ExtResource("2_casn2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1135077700]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1808854293]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_u0ya7")
+
+[node name="RangeArea2D" type="Area2D" parent="." unique_id=2122754183]
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea2D" unique_id=759523893]
+shape = SubResource("CircleShape2D_uagjl")
+
+[node name="Timer" type="Timer" parent="." unique_id=1561926578]
+wait_time = 0.8
+autostart = true
+
+[connection signal="area_entered" from="RangeArea2D" to="." method="_on_range_area_2d_area_entered"]
+[connection signal="area_exited" from="RangeArea2D" to="." method="_on_range_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

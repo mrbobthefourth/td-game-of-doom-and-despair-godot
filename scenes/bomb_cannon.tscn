@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://06ymi8hnelar"]
+
+[ext_resource type="Texture2D" uid="uid://cbl4j4abjgfh5" path="res://assets/cnar_taret-removebg-preview.png" id="1_tk7kl"]
+
+[node name="bomb_cannon" type="Node2D" unique_id=1250381812]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1320716171]
+position = Vector2(-6, 35)
+texture = ExtResource("1_tk7kl")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=502938458]
+position = Vector2(145, 2)

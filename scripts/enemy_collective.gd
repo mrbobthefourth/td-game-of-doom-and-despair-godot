@@ -26,6 +26,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if not slowed:
 			speed = speed / 2
 			slowed = true
-	else:
+	elif "bullet":
 		health -= 1
 		area.queue_free()
+	elif "projectile":
+		area.explode()

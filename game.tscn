@@ -192,6 +192,7 @@ position = Vector2(830, 300)
 shape = SubResource("CircleShape2D_u0ya7")
 
 [node name="PathZone" type="Area2D" parent="NoBuildZones" unique_id=857491257]
+position = Vector2(4, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/PathZone" unique_id=1210680325]
 position = Vector2(580, 430.5)
