@@ -1,7 +1,7 @@
 extends Node2D
 
 var has_target = false
-var active = true
+var active = false
 var target = null
 var enemies_in_range = []
 var can_place = false

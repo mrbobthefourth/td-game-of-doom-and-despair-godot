@@ -1,5 +1,6 @@
 extends PathFollow2D
 
+
 var slowed = false
 const MAX_HP = 3
 @export var health = MAX_HP
@@ -13,7 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	progress += speed * delta
-	if health == 0:
+	if health <= 0:
 		Carrier.money += 3
 		queue_free()
 
@@ -26,8 +27,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if not slowed:
 			speed = speed / 2
 			slowed = true
-	elif "bullet":
+	elif "bullet" in area.name:
 		health -= 1
 		area.queue_free()
-	elif "projectile":
+	elif "projectile" in area.name:
+		print("test")
 		area.explode()
+	elif "explosion" in area.name:
+			health -= 1

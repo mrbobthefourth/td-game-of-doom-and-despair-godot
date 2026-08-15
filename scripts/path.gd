@@ -99,7 +99,9 @@ func wave(wave):
 			await get_tree().create_timer(1).timeout
 
 func _process(delta: float) -> void:
-	if not get_parent().get_node("GunBase") == null:
-		if get_child_count() == 0 and waveCount != 10:
-			waveCount += 1
-			wave(waveCount)
+	if not get_parent().get_node("GunBase") == null or not get_parent().get_node("BombBase") == null :
+		if get_child_count() == 0 and waveCount != 12:
+			await get_tree().create_timer(1).timeout
+			if get_child_count() == 0 and waveCount != 12:
+				waveCount += 1
+				wave(waveCount)

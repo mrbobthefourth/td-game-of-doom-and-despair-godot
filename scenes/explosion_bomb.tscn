@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b156xay5ira24"]
+
+[ext_resource type="Script" uid="uid://djxe3afb41v66" path="res://scripts/explosion_bomb.gd" id="1_12un1"]
+[ext_resource type="Texture2D" uid="uid://dp67df5fv445c" path="res://assets/Explosion-removebg-preview.png" id="2_12un1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0ya7"]
+radius = 85.052925
+
+[node name="explosion_bomb" type="Area2D" unique_id=1916826356]
+z_index = 1
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_12un1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1951773470]
+position = Vector2(15.999994, -16.999998)
+scale = Vector2(0.5825826, 0.60800004)
+texture = ExtResource("2_12un1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140732237]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_u0ya7")
