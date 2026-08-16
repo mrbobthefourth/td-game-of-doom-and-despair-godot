@@ -1,5 +1,6 @@
 extends Node2D
 
+var camo_detection
 var can_place = false
 var has_target = false
 var active = false

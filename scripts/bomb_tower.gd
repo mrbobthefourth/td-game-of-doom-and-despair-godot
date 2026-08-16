@@ -1,5 +1,6 @@
 extends Node2D
 
+var camo_detection = false
 var has_target = false
 var active = false
 var target = null
@@ -34,8 +35,7 @@ func _process(delta: float) -> void:
 
 
 func _on_range_area_2d_area_entered(area: Area2D) -> void:
-	enemies_in_range.append(area)
-
+		enemies_in_range.append(area)
 
 
 func _on_range_area_2d_area_exited(area: Area2D) -> void:
