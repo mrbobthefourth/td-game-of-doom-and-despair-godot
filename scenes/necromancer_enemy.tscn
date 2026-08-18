@@ -5,10 +5,11 @@
 
 [node name="necromancer_enemy" type="PathFollow2D" unique_id=1221092266]
 script = ExtResource("1_1slqb")
-health = 10
-speed = 45
+health = 20
+speed = 50
 
 [node name="Timer" type="Timer" parent="." unique_id=1436792795]
+wait_time = 2.5
 autostart = true
 
 [node name="Area2D" parent="." unique_id=467424132 instance=ExtResource("3_qdy43")]

@@ -16,9 +16,9 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	modulate = Color.BLUE
+	modulate = Color.YELLOW
 	await get_tree().create_timer(0.5).timeout
 	var summon = summon_scene.instantiate()
-	summon.progress = progress
+	summon.progress = progress - 100
 	get_parent().add_child(summon)
 	modulate = Color.WHITE

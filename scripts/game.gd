@@ -21,15 +21,15 @@ func _process(delta: float) -> void:
 	elif Carrier.money < 100000:
 		$CoinsLabel.text = str(Carrier.money / 100) + "K"
 	$WaveCounter.text = "WAVE" + str($Path.waveCount)
-	if Carrier.money < 25:
+	if Carrier.money < 24:
 		$CanvasLayer/GunTowerButton.modulate = Color.RED
 	else:
 		$CanvasLayer/GunTowerButton.modulate = Color.WHITE
-	if Carrier.money < 30:
+	if Carrier.money < 29:
 		$CanvasLayer/FreezerTowerButton.modulate = Color.RED
 	else:
 		$CanvasLayer/FreezerTowerButton.modulate = Color.WHITE
-	if Carrier.money < 50:
+	if Carrier.money < 99:
 		$CanvasLayer/BombTowerButton.modulate = Color.RED
 	else:
 		$CanvasLayer/BombTowerButton.modulate = Color.WHITE
@@ -57,7 +57,7 @@ func _unhandled_input(event):
 					print("freeze")
 				elif placing_bmbtower == true:
 					placing_bmbtower = false
-					Carrier.money -= 50
+					Carrier.money -= 100
 					print("bomb")
 				current_tower.active = true
 
@@ -92,6 +92,6 @@ func _on_freezer_tower_button_pressed() -> void:
 
 
 func _on_bomb_tower_button_pressed() -> void:
-	if Carrier.money >= 30:
+	if Carrier.money >= 100:
 		placing_bmbtower = true
 		place_bmbtower(get_global_mouse_position())

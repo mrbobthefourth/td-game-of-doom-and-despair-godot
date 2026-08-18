@@ -1,7 +1,7 @@
 extends Path2D
 
 var gameStarted = false
-var waveCount =  14
+var waveCount =  0
 @onready var enemy_scene = preload("res://scenes/path_enemy.tscn")
 @onready var fenemy_scene = preload("res://scenes/fast_enemy.tscn")
 @onready var tenemy_scene = preload("res://scenes/tank_enemy.tscn")
@@ -15,31 +15,27 @@ func wave(wave):
 		var enemy = enemy_scene.instantiate()
 		add_child(enemy, true)
 	elif wave == 2: # WAVE 2 -----------------------------------------------------------------------
-		for i in range(4):
+		for i in range(2):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
 	elif wave == 3: # WAVE 3 -----------------------------------------------------------------------
-		for i in range(6):
-			var enemy = enemy_scene.instantiate()
-			add_child(enemy, true)
-			await get_tree().create_timer(1).timeout
-	elif wave == 4: # WAVE 4 -----------------------------------------------------------------------
-		for i in range(9):
-			var enemy = enemy_scene.instantiate()
-			add_child(enemy, true)
-			await get_tree().create_timer(1).timeout
-	elif wave == 5: # WAVE 5------------------------------------------------------------------------
 		for i in range(4):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
+	elif wave == 4: # WAVE 4 -----------------------------------------------------------------------
+		for i in range(7):
+			var enemy = enemy_scene.instantiate()
+			add_child(enemy, true)
+			await get_tree().create_timer(1).timeout
+	elif wave == 5: # WAVE 5------------------------------------------------------------------------
 		for i in range(6):
 			var enemy = fenemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
 	elif wave == 6: # WAVE 6------------------------------------------------------------------------
-		for i in range(11):
+		for i in range(10):
 			var enemy = fenemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
@@ -117,10 +113,11 @@ func wave(wave):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1.0).timeout
-		for i in range(5):
-			var nenemy = nenemy_scene.instantiate()
-			add_child(nenemy, true)
-			await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(2).timeout
+		var nenemy = nenemy_scene.instantiate()
+		add_child(nenemy, true)
+		await get_tree().create_timer(1.5).timeout
+
 
 func _process(delta: float) -> void:
 	if not get_parent().get_node("GunBase") == null or not get_parent().get_node("BombBase") == null :

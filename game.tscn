@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://bpomrpekjpo0n" path="res://scripts/carrier.gd" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bm7pmret388g7" path="res://assets/FRZgun-removebg-preview.png" id="6_vef74"]
 [ext_resource type="Texture2D" uid="uid://cbl4j4abjgfh5" path="res://assets/cnar_taret-removebg-preview.png" id="7_vef74"]
-[ext_resource type="AudioStream" uid="uid://dye8348gponyq" path="res://assets/Brainiac Maniac-e.wav" id="9_vef74"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 50
@@ -153,13 +152,14 @@ text = "30
 "
 
 [node name="Label3" type="Label" parent="CanvasLayer" unique_id=1215463507]
-offset_left = 1087.0
+offset_left = 1072.0
 offset_top = 265.0
-offset_right = 1127.0
-offset_bottom = 352.0
+offset_right = 1123.0
+offset_bottom = 397.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "50
+text = "100
+
 "
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1592769938]
@@ -239,11 +239,6 @@ shape = SubResource("RectangleShape2D_yex4w")
 
 [node name="Carrier" type="Node" parent="." unique_id=176475661]
 script = ExtResource("6_ryrav")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2086570480]
-stream = ExtResource("9_vef74")
-volume_db = -12.774
-autoplay = true
 
 [connection signal="area_entered" from="BaseArea" to="BaseArea" method="_on_area_entered"]
 [connection signal="script_changed" from="BaseArea" to="BaseArea" method="_on_script_changed"]

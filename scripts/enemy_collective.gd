@@ -8,15 +8,16 @@ const MAX_HP = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	randomize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	progress += speed * delta
 	if health <= 0:
-		Carrier.money += 3
+		Carrier.money += max(1, round(4 * Carrier.baseDecrease)) as int
 		queue_free()
+
 
 
 
