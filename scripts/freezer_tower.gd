@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var MenuRect = ColorRect
 var camo_detection
 var can_place = false
 var has_target = false
@@ -14,21 +15,19 @@ var enemies_in_range = []
 func _ready() -> void:
 	var cannon = top_scene.instantiate()
 	add_child(cannon)
-
+	get_parent().clicked_outside_ui.connect(Callable(self, "clicked_outside_ui"))
 func place():
 	$Sprite2D.modulate = Color.WHITE
 	$freezer_cannon/Sprite2D.modulate = Color.WHITE
 
 func _process(delta: float) -> void:
+	$Button.disabled = !active
 	if enemies_in_range.size() != 0:
 		if enemies_in_range[0].get("slowed") != null:
 			if enemies_in_range[0].slowed == false:
 				enemies_in_range.remove_at(0)
 	choose_target()
-	if $Area2D.has_overlapping_areas() == true:
-		can_place = false
-	elif !$Area2D.has_overlapping_areas() == true:
-		can_place = true
+	can_place = !$Area2D.has_overlapping_areas()
 	if can_place == false:
 		$Sprite2D.modulate = Color.RED
 		$freezer_cannon/Sprite2D.modulate = Color.RED
@@ -62,3 +61,10 @@ func _on_timer_timeout() -> void:
 		var bullet = bullet_scene.instantiate()
 		bullet.global_rotation = $freezer_cannon.global_rotation
 		add_child(bullet, true)
+
+
+func _on_button_pressed() -> void:
+	$MenuRect.visible = true
+
+func clicked_outside_ui():
+	$MenuRect.visible = false

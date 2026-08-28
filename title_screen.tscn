@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ba0bgkln2a8bc"]
 
 [ext_resource type="Script" uid="uid://rafwe755ug4x" path="res://scripts/title_screen.gd" id="1_ak2if"]
-[ext_resource type="Texture2D" uid="uid://bpgbej6epnydm" path="res://assets/Screenshot 2026-08-05 154347.png" id="2_ak2if"]
+[ext_resource type="Texture2D" uid="uid://cm1xi5c6f2xxh" path="res://assets/Background.png" id="2_ak2if"]
 
 [node name="TitleScreen" type="Control" unique_id=994694068]
 layout_mode = 3
@@ -13,8 +13,8 @@ grow_vertical = 2
 script = ExtResource("1_ak2if")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682091700]
-position = Vector2(-3.5000305, -7.6293945e-06)
-scale = Vector2(3.5230772, 2.1114752)
+position = Vector2(-5.5, -3.9999952)
+scale = Vector2(0.99045146, 0.9907407)
 texture = ExtResource("2_ak2if")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=929567214]

@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var current_tower = null
 @onready var guntower_scene = preload("res://scenes/gun_base.tscn")
 @onready var frztower_scene = preload("res://scenes/freezer_base.tscn")
@@ -7,6 +8,7 @@ var current_tower = null
 var placing_guntower = false
 var placing_frztower = false
 var placing_bmbtower = false
+signal clicked_outside_ui
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,6 +62,9 @@ func _unhandled_input(event):
 					Carrier.money -= 100
 					print("bomb")
 				current_tower.active = true
+	elif event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			clicked_outside_ui.emit()
 
 func place_guntower(pos):
 	var tower = guntower_scene.instantiate()

@@ -15,46 +15,46 @@ func wave(wave):
 		var enemy = enemy_scene.instantiate()
 		add_child(enemy, true)
 	elif wave == 2: # WAVE 2 -----------------------------------------------------------------------
-		for i in range(2):
+		for i in range(3):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
 	elif wave == 3: # WAVE 3 -----------------------------------------------------------------------
-		for i in range(4):
-			var enemy = enemy_scene.instantiate()
-			add_child(enemy, true)
-			await get_tree().create_timer(1).timeout
-	elif wave == 4: # WAVE 4 -----------------------------------------------------------------------
-		for i in range(7):
-			var enemy = enemy_scene.instantiate()
-			add_child(enemy, true)
-			await get_tree().create_timer(1).timeout
-	elif wave == 5: # WAVE 5------------------------------------------------------------------------
-		for i in range(6):
-			var enemy = fenemy_scene.instantiate()
-			add_child(enemy, true)
-			await get_tree().create_timer(1).timeout
-	elif wave == 6: # WAVE 6------------------------------------------------------------------------
-		for i in range(10):
-			var enemy = fenemy_scene.instantiate()
-			add_child(enemy, true)
-			await get_tree().create_timer(1).timeout
-	elif wave == 7: # WAVE 7------------------------------------------------------------------------
-		for i in range(9):
-			var enemy = fenemy_scene.instantiate()
-			add_child(enemy, true)
-			await get_tree().create_timer(1).timeout
 		for i in range(5):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
+	elif wave == 4: # WAVE 4 -----------------------------------------------------------------------
+		for i in range(8):
+			var enemy = enemy_scene.instantiate()
+			add_child(enemy, true)
+			await get_tree().create_timer(1).timeout
+	elif wave == 5: # WAVE 5------------------------------------------------------------------------
+		for i in range(7):
+			var enemy = fenemy_scene.instantiate()
+			add_child(enemy, true)
+			await get_tree().create_timer(1).timeout
+	elif wave == 6: # WAVE 6------------------------------------------------------------------------
+		for i in range(11):
+			var enemy = fenemy_scene.instantiate()
+			add_child(enemy, true)
+			await get_tree().create_timer(1).timeout
+	elif wave == 7: # WAVE 7------------------------------------------------------------------------
+		for i in range(10):
+			var enemy = fenemy_scene.instantiate()
+			add_child(enemy, true)
+			await get_tree().create_timer(1).timeout
+		for i in range(6):
+			var enemy = enemy_scene.instantiate()
+			add_child(enemy, true)
+			await get_tree().create_timer(1).timeout
 	elif wave == 8: # WAVE 8 -----------------------------------------------------------------------
-		for i in range(16):
+		for i in range(17):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(0.5).timeout
 	elif wave == 9: # WAVE 9 -----------------------------------------------------------------------
-		for i in range(12):
+		for i in range(13):
 			var enemy = fenemy_scene.instantiate()
 			var fenemy = enemy_scene.instantiate()
 			add_child(enemy, true)
@@ -62,29 +62,29 @@ func wave(wave):
 			add_child(fenemy, true)
 			await get_tree().create_timer(1).timeout
 	elif wave == 10: # WAVE 10 ----------------------------------------------------------------------
-		for i in range(25):
+		for i in range(26):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
-		for i in range(25):
+		for i in range(26):
 			var enemy = fenemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
-		for i in range(10):
+		for i in range(11):
 			var enemy = tenemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1.2).timeout
 	elif wave == 11: # WAVE 11 ---------------------------------------------------------------------
-		for i in range(30):
+		for i in range(31):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1).timeout
-		for i in range(15):
+		for i in range(16):
 			var enemy = tenemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1.2).timeout
 	elif wave == 12: # WAVE 12 ---------------------------------------------------------------------
-		for i in range(30):
+		for i in range(31):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1.0).timeout
@@ -95,28 +95,29 @@ func wave(wave):
 			add_child(fenemy, true)
 			await get_tree().create_timer(1).timeout
 	elif wave == 13: # WAVE 13 ---------------------------------------------------------------------
-		for i in range(150):
+		for i in range(200):
 			var fenemy = fenemy_scene.instantiate()
 			add_child(fenemy, true)
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.3).timeout
 	elif wave == 14: # WAVE 14 ---------------------------------------------------------------------
-		for i in range(50):
+		for i in range(51):
 			var tenemy = tenemy_scene.instantiate()
 			add_child(tenemy, true)
-			await get_tree().create_timer(0.8)
-		for i in range(30):
+			await get_tree().create_timer(0.8).timeout
+		for i in range(31):
 			var fenemy = fenemy_scene.instantiate()
 			add_child(fenemy, true)
-			await get_tree().create_timer(0.8)
+			await get_tree().create_timer(0.8).timeout
 	elif wave == 15: # WAVE 15 ---------------------------------------------------------------------
-		for i in range(20):
+		for i in range(21):
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy, true)
 			await get_tree().create_timer(1.0).timeout
 		await get_tree().create_timer(2).timeout
-		var nenemy = nenemy_scene.instantiate()
-		add_child(nenemy, true)
-		await get_tree().create_timer(1.5).timeout
+		for i in range(3):
+			var nenemy = nenemy_scene.instantiate()
+			add_child(nenemy, true)
+			await get_tree().create_timer(2).timeout
 
 
 func _process(delta: float) -> void:

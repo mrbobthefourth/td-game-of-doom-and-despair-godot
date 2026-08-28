@@ -40,7 +40,7 @@ size = Vector2(70, 401)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yex4w"]
 size = Vector2(70, 306)
 
-[node name="Game" type="Node2D" unique_id=1725386754]
+[node name="PewPew_Meadow" type="Node2D" unique_id=1725386754]
 script = ExtResource("1_7jktm")
 
 [node name="WaveCounter" type="Label" parent="." unique_id=722596605]
@@ -97,42 +97,42 @@ godMode = true
 position = Vector2(25, -34.5)
 shape = SubResource("RectangleShape2D_u0ya7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=491428406]
+[node name="RightMenuLayer" type="CanvasLayer" parent="." unique_id=491428406]
 
-[node name="GunTowerButton" type="Button" parent="CanvasLayer" unique_id=1989430135]
+[node name="GunTowerButton" type="Button" parent="RightMenuLayer" unique_id=1989430135]
 offset_left = 1015.0
 offset_top = 21.0
 offset_right = 1123.0
 offset_bottom = 110.0
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GunTowerButton" unique_id=384048134]
+[node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/GunTowerButton" unique_id=384048134]
 position = Vector2(43.999878, 49.999992)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_7jktm")
 
-[node name="FreezerTowerButton" type="Button" parent="CanvasLayer" unique_id=1319897666]
+[node name="FreezerTowerButton" type="Button" parent="RightMenuLayer" unique_id=1319897666]
 offset_left = 1015.0
 offset_top = 118.0
 offset_right = 1123.0
 offset_bottom = 207.0
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/FreezerTowerButton" unique_id=931389919]
+[node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/FreezerTowerButton" unique_id=931389919]
 position = Vector2(48.6792, 54.091995)
 scale = Vector2(0.30037862, 0.285009)
 texture = ExtResource("6_vef74")
 
-[node name="BombTowerButton" type="Button" parent="CanvasLayer" unique_id=1034612282]
+[node name="BombTowerButton" type="Button" parent="RightMenuLayer" unique_id=1034612282]
 offset_left = 1015.0
 offset_top = 214.0
 offset_right = 1123.0
 offset_bottom = 303.0
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/BombTowerButton" unique_id=2021990343]
+[node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/BombTowerButton" unique_id=2021990343]
 position = Vector2(36.5, 59.000015)
 scale = Vector2(0.428962, 0.463343)
 texture = ExtResource("7_vef74")
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1182390182]
+[node name="Label" type="Label" parent="RightMenuLayer" unique_id=1182390182]
 offset_left = 1083.0
 offset_top = 72.0
 offset_right = 1123.0
@@ -141,7 +141,7 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "25"
 
-[node name="Label2" type="Label" parent="CanvasLayer" unique_id=45948916]
+[node name="Label2" type="Label" parent="RightMenuLayer" unique_id=45948916]
 offset_left = 1087.0
 offset_top = 168.0
 offset_right = 1127.0
@@ -151,7 +151,7 @@ theme_override_font_sizes/font_size = 30
 text = "30
 "
 
-[node name="Label3" type="Label" parent="CanvasLayer" unique_id=1215463507]
+[node name="Label3" type="Label" parent="RightMenuLayer" unique_id=1215463507]
 offset_left = 1072.0
 offset_top = 265.0
 offset_right = 1123.0
@@ -242,6 +242,6 @@ script = ExtResource("6_ryrav")
 
 [connection signal="area_entered" from="BaseArea" to="BaseArea" method="_on_area_entered"]
 [connection signal="script_changed" from="BaseArea" to="BaseArea" method="_on_script_changed"]
-[connection signal="pressed" from="CanvasLayer/GunTowerButton" to="." method="_on_gun_tower_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/FreezerTowerButton" to="." method="_on_freezer_tower_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/BombTowerButton" to="." method="_on_bomb_tower_button_pressed"]
+[connection signal="pressed" from="RightMenuLayer/GunTowerButton" to="." method="_on_gun_tower_button_pressed"]
+[connection signal="pressed" from="RightMenuLayer/FreezerTowerButton" to="." method="_on_freezer_tower_button_pressed"]
+[connection signal="pressed" from="RightMenuLayer/BombTowerButton" to="." method="_on_bomb_tower_button_pressed"]

@@ -8,6 +8,3 @@ scale = Vector2(0.5, 0.5)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1320716171]
 position = Vector2(-6, 35)
 texture = ExtResource("1_tk7kl")
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=502938458]
-position = Vector2(145, 2)

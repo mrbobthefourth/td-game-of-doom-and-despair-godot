@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var camo_detection = false
 var has_target = false
 var active = false
@@ -13,17 +14,16 @@ var can_place = false
 func _ready() -> void:
 	var cannon = top_scene.instantiate()
 	add_child(cannon)
+	get_parent().clicked_outside_ui.connect(Callable(self, "clicked_outside_ui"))
 
 func place():
 	$Sprite2D.modulate = Color.WHITE
 	$bomb_cannon/Sprite2D.modulate = Color.WHITE
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	$Button.disabled = !active
 	choose_target()
-	if $Area2D.has_overlapping_areas() == true:
-		can_place = false
-	elif !$Area2D.has_overlapping_areas() == true:
-		can_place = true
+	can_place = !$Area2D.has_overlapping_areas()
 	if can_place == false:
 		$Sprite2D.modulate = Color.RED
 		$bomb_cannon/Sprite2D.modulate = Color.RED
@@ -56,3 +56,10 @@ func _on_timer_timeout() -> void:
 		var bullet = bullet_scene.instantiate()
 		bullet.global_rotation = $bomb_cannon.global_rotation
 		add_child(bullet, true)
+
+
+func _on_button_pressed() -> void:
+	$MenuRect.visible = true
+
+func clicked_outside_ui():
+	$MenuRect.visible = false
