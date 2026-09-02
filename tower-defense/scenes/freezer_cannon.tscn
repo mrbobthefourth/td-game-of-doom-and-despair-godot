@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dstas5kj4grha"]
+
+[ext_resource type="Texture2D" uid="uid://bm7pmret388g7" path="res://assets/FRZgun-removebg-preview.png" id="1_b33eu"]
+
+[node name="freezer_cannon" type="Node2D" unique_id=568135024]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=254125235]
+position = Vector2(-3, 5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_b33eu")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=323533470]
+position = Vector2(45, -2)

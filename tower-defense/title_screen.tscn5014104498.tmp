@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ba0bgkln2a8bc"]
+
+[ext_resource type="Script" uid="uid://rafwe755ug4x" path="res://scripts/title_screen.gd" id="1_ak2if"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v6p8y"]
+load_path = "res://.godot/imported/Screenshot 2026-08-05 154347.png-bb01b5fae43745ef66e41cdd596e0cdc.ctex"
+
+[node name="TitleScreen" type="Control" unique_id=994694068]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ak2if")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682091700]
+position = Vector2(-4.9999847, -0.49998474)
+scale = Vector2(3.5630767, 2.1081967)
+texture = SubResource("CompressedTexture2D_v6p8y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=929567214]
+position = Vector2(-2, 0)
+
+[node name="Label" type="Label" parent="." unique_id=513339270]
+layout_mode = 0
+offset_left = -437.0
+offset_top = -278.0
+offset_right = 401.0
+offset_bottom = -141.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 0.22352941)
+theme_override_font_sizes/font_size = 70
+text = "THINGS TOWER DEFENSE"
+
+[node name="PlayButton" type="Button" parent="." unique_id=1093935839]
+layout_mode = 0
+offset_left = -128.0
+offset_top = -27.0
+offset_right = 117.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="." unique_id=2027616942]
+layout_mode = 0
+offset_left = -128.0
+offset_top = 68.0
+offset_right = 117.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_play_button_2_pressed"]

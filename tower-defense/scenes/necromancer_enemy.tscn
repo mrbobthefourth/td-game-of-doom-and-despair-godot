@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cst8rwbinfxuk"]
+
+[ext_resource type="Script" uid="uid://cprxtb3ugcmoa" path="res://scripts/necromancer_enemy.gd" id="1_1slqb"]
+[ext_resource type="PackedScene" uid="uid://caljsike07l14" path="res://scenes/enemy.tscn" id="3_qdy43"]
+
+[node name="necromancer_enemy" type="PathFollow2D" unique_id=1221092266]
+script = ExtResource("1_1slqb")
+health = 30
+speed = 50
+
+[node name="Timer" type="Timer" parent="." unique_id=1436792795]
+wait_time = 1.56
+autostart = true
+
+[node name="Area2D" parent="." unique_id=467424132 instance=ExtResource("3_qdy43")]
+modulate = Color(1.5624895, 0.60514134, 1.753959, 0.81960785)
+scale = Vector2(1.2, 1.2799999)
+collision_layer = 2
+collision_mask = 4
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

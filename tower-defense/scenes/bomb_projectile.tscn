@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ij745nk0q5ym"]
+
+[ext_resource type="Script" uid="uid://fhhv76yj3y6" path="res://scripts/bomb_projectile.gd" id="1_334kg"]
+[ext_resource type="Texture2D" uid="uid://c5xcsqvafgtrq" path="res://assets/BombShell-removebg-preview.png" id="2_npvbk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0ya7"]
+radius = 23.345236
+
+[node name="bomb_projectile" type="Area2D" unique_id=1032377746]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_334kg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=864882876]
+position = Vector2(4, -4)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_npvbk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090980767]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_u0ya7")
+
+[node name="Timer" type="Timer" parent="." unique_id=1781894130]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

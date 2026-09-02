@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://dxc7crtcrvdy7"]
+
+[ext_resource type="Script" uid="uid://1h8nkhhttqmc" path="res://scripts/game.gd" id="1_7jktm"]
+[ext_resource type="Texture2D" uid="uid://26mprf30ucly" path="res://assets/map.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://clbvksy1ij8ve" path="res://scripts/path.gd" id="3_ryrav"]
+[ext_resource type="Script" uid="uid://bq3hcwv40s1et" path="res://scripts/base.gd" id="4_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://oibe3qgcofjp" path="res://assets/TDgun-removebg-preview.png" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://bpomrpekjpo0n" path="res://scripts/carrier.gd" id="6_ryrav"]
+[ext_resource type="Texture2D" uid="uid://bm7pmret388g7" path="res://assets/FRZgun-removebg-preview.png" id="6_vef74"]
+[ext_resource type="Texture2D" uid="uid://cbl4j4abjgfh5" path="res://assets/cnar_taret-removebg-preview.png" id="7_vef74"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
+font_size = 50
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_u0ya7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 576, 530, 0, 0, 0, 0, 576, 269, 0, 0, 0, 0, 344, 266, 0, 0, 0, 0, 341, 62)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0ya7"]
+size = Vector2(70, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtglo"]
+size = Vector2(125, 165.80106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt34f"]
+size = Vector2(36, 78)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0ya7"]
+radius = 61.81424
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eow3j"]
+size = Vector2(70, 401)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yex4w"]
+size = Vector2(70, 306)
+
+[node name="PewPew_Meadow" type="Node2D" unique_id=1725386754]
+script = ExtResource("1_7jktm")
+
+[node name="WaveCounter" type="Label" parent="." unique_id=722596605]
+z_index = 1
+offset_left = 9.0
+offset_top = 591.0
+offset_right = 177.0
+offset_bottom = 704.0
+theme_override_font_sizes/font_size = 40
+text = "WAVE 1
+"
+
+[node name="HPlabel" type="Label" parent="." unique_id=1924758211]
+z_index = 1
+offset_left = 8.0
+offset_top = -9.0
+offset_right = 153.0
+offset_bottom = 216.0
+text = "HP:3
+
+"
+label_settings = SubResource("LabelSettings_7jktm")
+
+[node name="CoinsLabel" type="Label" parent="." unique_id=828702596]
+z_index = 1
+offset_left = 1011.0
+offset_top = 584.0
+offset_right = 1156.0
+offset_bottom = 809.0
+text = "4352
+
+
+"
+label_settings = SubResource("LabelSettings_ryrav")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=408745194]
+position = Vector2(579, 324)
+texture = ExtResource("1_80nbo")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=517097354]
+position = Vector2(574, 322)
+
+[node name="Path" type="Path2D" parent="." unique_id=2103327475]
+curve = SubResource("Curve2D_u0ya7")
+script = ExtResource("3_ryrav")
+
+[node name="BaseArea" type="Area2D" parent="." unique_id=1261477719]
+position = Vector2(316, 114)
+collision_mask = 2
+script = ExtResource("4_fc0e3")
+godMode = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseArea" unique_id=917535210]
+position = Vector2(25, -34.5)
+shape = SubResource("RectangleShape2D_u0ya7")
+
+[node name="RightMenuLayer" type="CanvasLayer" parent="." unique_id=491428406]
+
+[node name="GunTowerButton" type="Button" parent="RightMenuLayer" unique_id=1989430135]
+offset_left = 1015.0
+offset_top = 21.0
+offset_right = 1123.0
+offset_bottom = 110.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/GunTowerButton" unique_id=384048134]
+position = Vector2(43.999878, 49.999992)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_7jktm")
+
+[node name="FreezerTowerButton" type="Button" parent="RightMenuLayer" unique_id=1319897666]
+offset_left = 1015.0
+offset_top = 118.0
+offset_right = 1123.0
+offset_bottom = 207.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/FreezerTowerButton" unique_id=931389919]
+position = Vector2(48.6792, 54.091995)
+scale = Vector2(0.30037862, 0.285009)
+texture = ExtResource("6_vef74")
+
+[node name="BombTowerButton" type="Button" parent="RightMenuLayer" unique_id=1034612282]
+offset_left = 1015.0
+offset_top = 214.0
+offset_right = 1123.0
+offset_bottom = 303.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/BombTowerButton" unique_id=2021990343]
+position = Vector2(36.5, 59.000015)
+scale = Vector2(0.428962, 0.463343)
+texture = ExtResource("7_vef74")
+
+[node name="Label" type="Label" parent="RightMenuLayer" unique_id=1182390182]
+offset_left = 1083.0
+offset_top = 72.0
+offset_right = 1123.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "25"
+
+[node name="Label2" type="Label" parent="RightMenuLayer" unique_id=45948916]
+offset_left = 1087.0
+offset_top = 168.0
+offset_right = 1127.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "30
+"
+
+[node name="Label3" type="Label" parent="RightMenuLayer" unique_id=1215463507]
+offset_left = 1072.0
+offset_top = 265.0
+offset_right = 1123.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "100
+
+"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1592769938]
+offset_left = 1005.0
+offset_top = -18.0
+offset_right = 1132.0
+offset_bottom = 650.0
+
+[node name="NoBuildZones" type="Node" parent="." unique_id=1349291441]
+
+[node name="NoBuildZone" type="Area2D" parent="NoBuildZones" unique_id=1001501670]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/NoBuildZone" unique_id=1916345194]
+position = Vector2(189.5, 306)
+shape = SubResource("RectangleShape2D_dtglo")
+
+[node name="NoBuildZone2" type="Area2D" parent="NoBuildZones" unique_id=152857935]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/NoBuildZone2" unique_id=812100638]
+position = Vector2(616.5, 75.5)
+rotation = -1.2793263
+shape = SubResource("RectangleShape2D_dtglo")
+
+[node name="TreeZone" type="Area2D" parent="NoBuildZones" unique_id=122587936]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/TreeZone" unique_id=162038305]
+position = Vector2(830, 387)
+shape = SubResource("RectangleShape2D_wt34f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NoBuildZones/TreeZone" unique_id=1593153679]
+position = Vector2(830, 300)
+shape = SubResource("CircleShape2D_u0ya7")
+
+[node name="TreeZone2" type="Area2D" parent="NoBuildZones" unique_id=367651479]
+position = Vector2(111, -226)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/TreeZone2" unique_id=2121578659]
+position = Vector2(830, 387)
+shape = SubResource("RectangleShape2D_wt34f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NoBuildZones/TreeZone2" unique_id=1592205291]
+position = Vector2(830, 300)
+shape = SubResource("CircleShape2D_u0ya7")
+
+[node name="TreeZone3" type="Area2D" parent="NoBuildZones" unique_id=1581391415]
+position = Vector2(-729, -212)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/TreeZone3" unique_id=1844837551]
+position = Vector2(830, 387)
+shape = SubResource("RectangleShape2D_wt34f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NoBuildZones/TreeZone3" unique_id=1137091467]
+position = Vector2(830, 300)
+shape = SubResource("CircleShape2D_u0ya7")
+
+[node name="PathZone" type="Area2D" parent="NoBuildZones" unique_id=857491257]
+position = Vector2(4, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/PathZone" unique_id=1210680325]
+position = Vector2(580, 430.5)
+shape = SubResource("RectangleShape2D_eow3j")
+
+[node name="PathZone2" type="Area2D" parent="NoBuildZones" unique_id=1575228592]
+position = Vector2(845, -319)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/PathZone2" unique_id=1786035689]
+position = Vector2(580, 375.5)
+shape = SubResource("RectangleShape2D_yex4w")
+
+[node name="PathZone3" type="Area2D" parent="NoBuildZones" unique_id=1319508015]
+position = Vector2(-233, -232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildZones/PathZone3" unique_id=718852243]
+position = Vector2(580, 375.5)
+shape = SubResource("RectangleShape2D_yex4w")
+
+[node name="Carrier" type="Node" parent="." unique_id=176475661]
+script = ExtResource("6_ryrav")
+
+[connection signal="area_entered" from="BaseArea" to="BaseArea" method="_on_area_entered"]
+[connection signal="script_changed" from="BaseArea" to="BaseArea" method="_on_script_changed"]
+[connection signal="pressed" from="RightMenuLayer/GunTowerButton" to="." method="_on_gun_tower_button_pressed"]
+[connection signal="pressed" from="RightMenuLayer/FreezerTowerButton" to="." method="_on_freezer_tower_button_pressed"]
+[connection signal="pressed" from="RightMenuLayer/BombTowerButton" to="." method="_on_bomb_tower_button_pressed"]
