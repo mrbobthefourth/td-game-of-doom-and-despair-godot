@@ -81,4 +81,5 @@ flat = true
 [connection signal="area_entered" from="RangeArea2D" to="." method="_on_range_area_2d_area_entered"]
 [connection signal="area_exited" from="RangeArea2D" to="." method="_on_range_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="MenuRect/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -24,17 +24,17 @@ func _process(delta: float) -> void:
 		$CoinsLabel.text = str(Carrier.money / 100) + "K"
 	$WaveCounter.text = "WAVE" + str($Path.waveCount)
 	if Carrier.money < 24:
-		$CanvasLayer/GunTowerButton.modulate = Color.RED
+		$RightMenuLayer/GunTowerButton.modulate = Color.RED
 	else:
-		$CanvasLayer/GunTowerButton.modulate = Color.WHITE
+		$RightMenuLayer/GunTowerButton.modulate = Color.WHITE
 	if Carrier.money < 29:
-		$CanvasLayer/FreezerTowerButton.modulate = Color.RED
+		$RightMenuLayer/FreezerTowerButton.modulate = Color.RED
 	else:
-		$CanvasLayer/FreezerTowerButton.modulate = Color.WHITE
+		$RightMenuLayer/FreezerTowerButton.modulate = Color.WHITE
 	if Carrier.money < 99:
-		$CanvasLayer/BombTowerButton.modulate = Color.RED
+		$RightMenuLayer/BombTowerButton.modulate = Color.RED
 	else:
-		$CanvasLayer/BombTowerButton.modulate = Color.WHITE
+		$RightMenuLayer/BombTowerButton.modulate = Color.WHITE
 	if (placing_guntower or placing_frztower or placing_bmbtower) and current_tower:
 		current_tower.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("debug"):

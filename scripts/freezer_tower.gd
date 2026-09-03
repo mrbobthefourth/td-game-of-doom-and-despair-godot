@@ -68,3 +68,8 @@ func _on_button_pressed() -> void:
 
 func clicked_outside_ui():
 	$MenuRect.visible = false
+
+
+func _on_sell_pressed() -> void:
+	queue_free()
+	Carrier.money += 21

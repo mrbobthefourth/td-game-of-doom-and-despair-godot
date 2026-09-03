@@ -71,5 +71,5 @@ func clicked_outside_ui():
 
 func _on_sell_pressed() -> void:
 	print("Selled")
-	Carrier.money += 20
+	Carrier.money += 18
 	queue_free()

@@ -42,6 +42,7 @@ mouse_filter = 1
 flat = true
 
 [node name="MenuRect" type="ColorRect" parent="." unique_id=791559335]
+visible = false
 z_index = 1
 z_as_relative = false
 offset_left = 3.0
