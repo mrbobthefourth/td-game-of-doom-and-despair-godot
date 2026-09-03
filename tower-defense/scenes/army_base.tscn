@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://lqd2e4j8c007"]
+
+[ext_resource type="Texture2D" uid="uid://b77sfjjgn0ecd" path="res://assets/color-removed-army_base.png.png" id="1_cye2h"]
+[ext_resource type="Script" uid="uid://ome138aohbmf" path="res://scripts/army_base.gd" id="1_h54i5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0ya7"]
+size = Vector2(118.5, 106)
+
+[node name="army_base" type="Node2D" unique_id=1556242844]
+script = ExtResource("1_h54i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1299277838]
+position = Vector2(78, 60.000004)
+scale = Vector2(0.20565915, 0.2650463)
+texture = ExtResource("1_cye2h")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1855957716]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=992433646]
+position = Vector2(66.75, 58)
+shape = SubResource("RectangleShape2D_u0ya7")
+
+[node name="Timer" type="Timer" parent="." unique_id=206545272]
+wait_time = 3.0
+
+[node name="MenuRect" type="ColorRect" parent="." unique_id=163184738]
+visible = false
+z_index = 1
+z_as_relative = false
+offset_left = 73.0
+offset_top = -19.0
+offset_right = 280.0
+offset_bottom = 58.0
+color = Color(0.433974, 0.7928295, 0.53799146, 0.49803922)
+
+[node name="Gunner" type="Label" parent="MenuRect" unique_id=1352965118]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 124.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Army Base
+
+"
+
+[node name="Upgrade" type="Button" parent="MenuRect" unique_id=2036808070]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 6.0
+offset_right = 189.0
+offset_bottom = 33.0
+text = "Upgrade"
+
+[node name="Sell" type="Button" parent="MenuRect" unique_id=1775325785]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 39.0
+offset_right = 195.0
+offset_bottom = 70.0
+text = "Sell"
+
+[node name="Button" type="Button" parent="." unique_id=2010761684]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 113.0
+flat = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
