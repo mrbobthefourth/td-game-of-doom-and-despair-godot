@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(area.name)
 	if "freeze" in area.name:
 		area.queue_free()
 		if not slowed:
@@ -32,6 +33,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.explode()
 	elif "explosion" in area.name:
 		health -= 1
-	elif "army" in area.name:
+	elif "army" in area.get_parent().name:
 		health -= 1
-		area.health -= 1
+		area.get_parent().health -= 1

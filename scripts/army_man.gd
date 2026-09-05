@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-var health = 1
+var health = 2
 @export var speed = 100
 
 func _ready() -> void:

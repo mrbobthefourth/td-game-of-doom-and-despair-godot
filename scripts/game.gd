@@ -5,6 +5,8 @@ var current_tower = null
 @onready var guntower_scene = preload("res://scenes/gun_base.tscn")
 @onready var frztower_scene = preload("res://scenes/freezer_base.tscn")
 @onready var bmbtower_scene = preload("res://scenes/bomb_tower.tscn")
+@onready var armtower_scene = preload("res://scenes/army_base.tscn")
+var placing_armtower = false
 var placing_guntower = false
 var placing_frztower = false
 var placing_bmbtower = false
@@ -23,19 +25,22 @@ func _process(delta: float) -> void:
 	elif Carrier.money < 100000:
 		$CoinsLabel.text = str(Carrier.money / 100) + "K"
 	$WaveCounter.text = "WAVE" + str($Path.waveCount)
-	if Carrier.money < 24:
+	if Carrier.money < 25:
 		$RightMenuLayer/GunTowerButton.modulate = Color.RED
 	else:
 		$RightMenuLayer/GunTowerButton.modulate = Color.WHITE
-	if Carrier.money < 29:
+	if Carrier.money < 30:
 		$RightMenuLayer/FreezerTowerButton.modulate = Color.RED
 	else:
 		$RightMenuLayer/FreezerTowerButton.modulate = Color.WHITE
-	if Carrier.money < 99:
+	if Carrier.money < 100:
 		$RightMenuLayer/BombTowerButton.modulate = Color.RED
+		$RightMenuLayer/ArmyTowerButton.modulate = Color.RED
+		
 	else:
 		$RightMenuLayer/BombTowerButton.modulate = Color.WHITE
-	if (placing_guntower or placing_frztower or placing_bmbtower) and current_tower:
+		$RightMenuLayer/ArmyTowerButton.modulate = Color.WHITE
+	if (placing_guntower or placing_frztower or placing_bmbtower or placing_armtower) and current_tower:
 		current_tower.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("debug"):
 		Carrier.money += 10
@@ -45,7 +50,7 @@ func _process(delta: float) -> void:
 		Carrier.money += 1
 
 func _unhandled_input(event):
-	if (placing_guntower or placing_frztower or placing_bmbtower) and event is InputEventMouseButton:
+	if (placing_guntower or placing_frztower or placing_bmbtower or placing_armtower) and event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if current_tower.can_place == true:
 				current_tower.place()
@@ -61,7 +66,12 @@ func _unhandled_input(event):
 					placing_bmbtower = false
 					Carrier.money -= 100
 					print("bomb")
+				elif placing_armtower == true:
+					placing_armtower = false
+					Carrier.money -= 100
+					print("armybase")
 				current_tower.active = true
+	
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			clicked_outside_ui.emit()
@@ -84,6 +94,12 @@ func place_bmbtower(pos):
 	add_child(tower)
 	current_tower = tower
 
+func place_armtower(pos):
+	var tower = armtower_scene.instantiate()
+	tower.global_position = pos
+	add_child(tower)
+	current_tower = tower
+
 func _on_gun_tower_button_pressed() -> void:
 	if Carrier.money >= 25:
 		placing_guntower = true
@@ -100,3 +116,9 @@ func _on_bomb_tower_button_pressed() -> void:
 	if Carrier.money >= 100:
 		placing_bmbtower = true
 		place_bmbtower(get_global_mouse_position())
+
+
+func _on_army_tower_button_pressed() -> void:
+	if Carrier.money >= 100:
+		placing_armtower = true
+		place_armtower(get_global_mouse_position())

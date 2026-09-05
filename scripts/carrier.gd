@@ -5,5 +5,5 @@ var baseHP = 15
 var baseDecrease = 1
 
 func _process(delta: float) -> void:
-	baseDecrease -= 0.008 * delta
+	baseDecrease -= 0.007 * delta
 	#print(max(1, round(4 * baseDecrease) as int))

@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_u0ya7")
 
 [node name="Timer" type="Timer" parent="." unique_id=206545272]
 wait_time = 3.0
+autostart = true
 
 [node name="MenuRect" type="ColorRect" parent="." unique_id=163184738]
 visible = false

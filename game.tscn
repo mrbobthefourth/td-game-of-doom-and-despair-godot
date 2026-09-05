@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bpomrpekjpo0n" path="res://scripts/carrier.gd" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bm7pmret388g7" path="res://assets/FRZgun-removebg-preview.png" id="6_vef74"]
 [ext_resource type="Texture2D" uid="uid://cbl4j4abjgfh5" path="res://assets/cnar_taret-removebg-preview.png" id="7_vef74"]
-[ext_resource type="PackedScene" uid="uid://lqd2e4j8c007" path="res://scenes/army_base.tscn" id="10_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://b77sfjjgn0ecd" path="res://assets/color-removed-army_base.png.png" id="8_hve3p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 50
@@ -110,11 +110,32 @@ position = Vector2(43.999878, 49.999992)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_7jktm")
 
+[node name="Label" type="Label" parent="RightMenuLayer/GunTowerButton" unique_id=1182390182]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 51.0
+offset_right = 108.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "25"
+
 [node name="FreezerTowerButton" type="Button" parent="RightMenuLayer" unique_id=1319897666]
 offset_left = 1015.0
 offset_top = 118.0
 offset_right = 1123.0
 offset_bottom = 207.0
+
+[node name="Label2" type="Label" parent="RightMenuLayer/FreezerTowerButton" unique_id=45948916]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 50.0
+offset_right = 112.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "30
+"
 
 [node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/FreezerTowerButton" unique_id=931389919]
 position = Vector2(48.6792, 54.091995)
@@ -127,35 +148,40 @@ offset_top = 214.0
 offset_right = 1123.0
 offset_bottom = 303.0
 
+[node name="Label3" type="Label" parent="RightMenuLayer/BombTowerButton" unique_id=1215463507]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 51.0
+offset_right = 108.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "100
+
+"
+
 [node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/BombTowerButton" unique_id=2021990343]
 position = Vector2(36.5, 59.000015)
 scale = Vector2(0.428962, 0.463343)
 texture = ExtResource("7_vef74")
 
-[node name="Label" type="Label" parent="RightMenuLayer" unique_id=1182390182]
-offset_left = 1083.0
-offset_top = 72.0
-offset_right = 1123.0
-offset_bottom = 114.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "25"
+[node name="ArmyTowerButton" type="Button" parent="RightMenuLayer" unique_id=517913906]
+offset_left = 1015.0
+offset_top = 313.0
+offset_right = 1122.0
+offset_bottom = 402.0
 
-[node name="Label2" type="Label" parent="RightMenuLayer" unique_id=45948916]
-offset_left = 1087.0
-offset_top = 168.0
-offset_right = 1127.0
-offset_bottom = 210.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "30
-"
+[node name="Sprite2D" type="Sprite2D" parent="RightMenuLayer/ArmyTowerButton" unique_id=448477882]
+position = Vector2(61.625, 42.75)
+scale = Vector2(0.13941894, 0.16743828)
+texture = ExtResource("8_hve3p")
 
-[node name="Label3" type="Label" parent="RightMenuLayer" unique_id=1215463507]
-offset_left = 1072.0
-offset_top = 265.0
-offset_right = 1123.0
-offset_bottom = 397.0
+[node name="Label4" type="Label" parent="RightMenuLayer/ArmyTowerButton" unique_id=315607134]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 52.0
+offset_right = 107.0
+offset_bottom = 184.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "100
@@ -164,9 +190,9 @@ text = "100
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1592769938]
 offset_left = 1005.0
-offset_top = -18.0
+offset_top = -19.0
 offset_right = 1132.0
-offset_bottom = 650.0
+offset_bottom = 649.0
 
 [node name="NoBuildZones" type="Node" parent="." unique_id=1349291441]
 
@@ -240,11 +266,9 @@ shape = SubResource("RectangleShape2D_yex4w")
 [node name="Carrier" type="Node" parent="." unique_id=176475661]
 script = ExtResource("6_ryrav")
 
-[node name="army_base" parent="." unique_id=1556242844 instance=ExtResource("10_mfdv2")]
-position = Vector2(291, 376)
-
 [connection signal="area_entered" from="BaseArea" to="BaseArea" method="_on_area_entered"]
 [connection signal="script_changed" from="BaseArea" to="BaseArea" method="_on_script_changed"]
 [connection signal="pressed" from="RightMenuLayer/GunTowerButton" to="." method="_on_gun_tower_button_pressed"]
 [connection signal="pressed" from="RightMenuLayer/FreezerTowerButton" to="." method="_on_freezer_tower_button_pressed"]
 [connection signal="pressed" from="RightMenuLayer/BombTowerButton" to="." method="_on_bomb_tower_button_pressed"]
+[connection signal="pressed" from="RightMenuLayer/ArmyTowerButton" to="." method="_on_army_tower_button_pressed"]

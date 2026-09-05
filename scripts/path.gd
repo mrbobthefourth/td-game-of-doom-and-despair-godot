@@ -122,8 +122,8 @@ func wave(wave):
 
 func _process(delta: float) -> void:
 	if not get_parent().get_node("GunBase") == null or not get_parent().get_node("BombBase") == null :
-		if get_child_count() == 0 and waveCount != 15:
+		if get_tree().get_nodes_in_group("enemies").size() == 0 and waveCount != 15:
 			await get_tree().create_timer(1).timeout
-			if get_child_count() == 0 and waveCount != 15:
+			if get_tree().get_nodes_in_group("enemies").size() == 0 and waveCount != 15:
 				waveCount += 1
 				wave(waveCount)
